@@ -20,10 +20,7 @@ export class GoalsService {
   }
 
   create(goal: GoalDto) {
-    return this.goalRepository.insert({
-      descricao: goal.descricao,
-      meta: goal.meta,
-    });
+    return this.goalRepository.insert({ ...goal });
   }
 
   async remove(id: number): Promise<void> {
